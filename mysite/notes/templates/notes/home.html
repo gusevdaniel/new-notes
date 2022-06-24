@@ -1,0 +1,10 @@
+{% extends "notes/base.html" %}
+{% block content_base %}
+    <header class="masthead d-flex align-items-center">
+      <div class="container px-4 px-lg-5 text-center">
+          <h1 class="mb-1">NewNotes</h1>
+          <h3 class="mb-5"><em>Теперь когда заметки, задачи и расписание в одном месте, вы ничего не забудете и справитесь с любым проектом.</em></h3>
+          <a class="btn btn-primary btn-xl" href="{% url 'user-notes' %}">Начать</a>
+      </div>
+    </header>
+{% endblock content_base %}
