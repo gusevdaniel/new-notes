@@ -1,16 +1,20 @@
-{% extends "notes/base_header.html" %}
+{% extends "notes/base.html" %}
 {% block content %}
-    <div class="content-section">
+<section class="py-3">
+    <div class="container px-lg-5">
+        <div class="mb-2">
+        <h3>Удаление записи</h3>
+        </div>
         <form method="POST">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Удаление записи</legend>
-                <h2>Вы уверены, что хотите удалить эту запись?"{{ object.title }}"</h2>
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-outline-danger" type="submit">Да, хочу удалить</button>
-                <a class="btn btn-outline-secondary" href="{% url 'note-detail' object.id %}">Отмена</a>
+            <div class="text-primary">
+                <h2>Вы уверены, что хотите удалить запись "{{ object.title }}"?</h2>
+            </div>
+            <div class="mb-4">
+                <button class="btn btn-danger mt-1 mb-1" type="submit">Да, хочу удалить</button>
+                <a class="btn btn-secondary mt-1 mb-1" href="{% url 'note-detail' object.id %}">Отмена</a>
             </div>
         </form>
     </div>
+</section>
 {% endblock content %}

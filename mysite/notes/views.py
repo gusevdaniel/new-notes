@@ -1,3 +1,4 @@
+from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
@@ -61,7 +62,7 @@ class NoteUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 class NoteDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Note
-    success_url = '/'
+    success_url = reverse_lazy('user-notes')
 
     def test_func(self):
         note = self.get_object()

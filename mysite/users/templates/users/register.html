@@ -1,21 +1,35 @@
 {% extends "notes/base.html" %}
 {% load crispy_forms_tags %}
-{% block content_base %}
-    <div class="content-section">
-        <form method="POST">
-            {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Добро пожаловать в NewNotes</legend>
-                {{ form|crispy }}
-            </fieldset>
-            <div class="form-group">
-                <button class="btn btn-primary btn-block" type="submit">Регистрация</button>
-            </div>
-        </form>
-        <div class="border-top pt-3">
-            <small class="text-muted">
-                Уже есть аккаунт? <a class="ml-2" href="{% url 'login' %}">Вход</a>
-            </small>
-        </div>
-    </div>
-{% endblock content_base %}
+{% block content %}
+	<section class="h-100">
+		<div class="container h-100">
+			<div class="row justify-content-sm-center h-100">
+				<div class="my-5 col-xxl-7 col-xl-8 col-lg-8 col-md-10 col-sm-12">
+                    <div class="text-center mb-5">
+						<img src="https://www.freeiconspng.com/uploads/letter-n-icon-png-14.png" alt="logo" width="80">
+					</div>
+					<div class="card shadow-lg mb-5">
+						<div class="card-body p-5 pb-4">
+							<h1 class="fs-4 card-title fw-bold mb-4">Регистрация</h1>
+							<form method="POST">
+                                {% csrf_token %}
+								<div class="mb-4">
+                                    {{ form|crispy }}
+								</div>
+
+								<div class="d-flex align-items-center">
+                                    <button class="btn btn-primary btn-block mx-auto" type="submit">Создать аккаунт</button>
+								</div>
+							</form>
+						</div>
+						<div class="card-footer py-3 border-0">
+							<div class="text-center">
+								Уже есть аккаунт? <a href="{% url 'login' %}" class="text-dark">Вход</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock content %}
