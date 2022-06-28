@@ -1,0 +1,28 @@
+html { height: 100%; }
+body {
+  min-height:100%;
+  position:relative;
+  padding-bottom: 70px;
+}
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.note-content {
+  white-space: pre-line;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.note-pre-line {
+  white-space: pre-line;
+}
+.account-img {
+  height: 125px;
+  width: 125px;
+  margin-right: 20px;
+  margin-bottom: 16px;
+}

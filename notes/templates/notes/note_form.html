@@ -1,0 +1,23 @@
+{% extends "notes/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="py-3">
+    <div class="container px-lg-5">
+        <div class="mb-2">
+        <h3>Создание/редактирование записи</h3>
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="mb-4">
+                {{ form|crispy }}
+            </div>
+            <button class="btn btn-primary" type="submit">Сохранить</button>
+            {% if object %}
+                <a class="btn btn-secondary" href="{% url 'note-detail' object.id %}">Отмена</a>
+            {% else %}
+                <a class="btn btn-secondary" href="{% url 'user-notes' %}">Отмена</a>
+            {% endif %}
+        </form>
+    </div>
+</section>
+{% endblock content %}

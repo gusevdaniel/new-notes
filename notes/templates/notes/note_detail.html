@@ -1,0 +1,16 @@
+{% extends "notes/base.html" %}
+{% block content %}
+<section class="py-3">
+    <div class="container px-lg-5">
+      <div class="mb-2">
+        <h3>{{ object.title }}</h3>
+        <small>{{ object.date_posted|date:"F d, Y" }}</small>
+      </div>
+      <p class="note-pre-line">{{ object.content }}</p>
+      <div class="mb-4">
+          <a class="btn btn-secondary mt-1 mb-1" href="{% url 'note-update' object.id %}">Редактировать</a>
+          <a class="btn btn-danger mt-1 mb-1" href="{% url 'note-delete' object.id %}">Удалить</a>
+      </div>
+    </div>
+</section>
+{% endblock content %}
